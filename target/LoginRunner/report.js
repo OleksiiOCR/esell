@@ -19,19 +19,19 @@ formatter.step({
 formatter.match({
   "location": "LoginSteps.iNavigatingToTheHomePage()"
 });
-formatter.write("2021-09-22 08:01:19 PASS: Successfully navigated to the Home page");
+formatter.write("2021-09-28 22:00:00 PASS: Successfully navigated to the Home page");
 formatter.embedding("image/png", "embedded0.png", null);
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Clicking SingIn button",
+  "name": "Clicking CRM SingIn button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "LoginSteps.clickingSingInButton()"
+  "location": "LoginSteps.clickingCRMSingInButton()"
 });
-formatter.write("2021-09-22 08:01:20 PASS: Successfully navigated to Sign in page");
+formatter.write("2021-09-28 22:00:02 PASS: Successfully navigated to Sign in page");
 formatter.embedding("image/png", "embedded1.png", null);
 formatter.result({
   "status": "passed"
@@ -72,6 +72,40 @@ formatter.step({
 formatter.match({
   "location": "LoginSteps.passingToTheField(String,String)"
 });
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Clicking \"Sign In\" button",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LoginSteps.clickingButton(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Verifying that I Signed In as a \"User1@example.com\" user",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "LoginSteps.verifyingThatISignedInAsAUser(String)"
+});
+formatter.write("2021-09-28 22:00:07 PASS: Signed In with user1@example.comlogin");
+formatter.embedding("image/png", "embedded2.png", null);
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Signing Out",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LoginSteps.signingOut()"
+});
+formatter.write("2021-09-28 22:00:08 PASS: Successfully Sign in page");
+formatter.embedding("image/png", "embedded3.png", null);
 formatter.result({
   "status": "passed"
 });

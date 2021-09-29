@@ -20,10 +20,10 @@ public class LoginSteps {
 
     }
 
-    @And("Clicking SingIn button")
-    public void clickingSingInButton() {
+    @And("Clicking CRM SingIn button")
+    public void clickingCRMSingInButton() {
         LoginImpls login = new LoginImpls();
-        login.clickingSignInButton();
+        login.clickingCrmSignInButton();
     }
 
 
@@ -36,4 +36,24 @@ public class LoginSteps {
         LoginImpls impls = new LoginImpls();
         impls.passingPasswordTotheField(passwordField,password);
     }
+
+    @Then("Clicking {string} button")
+    public void clickingButton(String button) {
+        LoginImpls impls = new LoginImpls();
+        impls.clickingButton(button);
+    }
+
+
+    @And("Verifying that I Signed In as a {string} user")
+    public void verifyingThatISignedInAsAUser(String username) {
+        LoginImpls impls = new LoginImpls();
+        impls.verifyingUserNamePage(username);
+    }
+
+    @Then("Signing Out")
+    public void signingOut() {
+        LoginImpls impls = new LoginImpls();
+        impls.signingOut();
+    }
 }
+
