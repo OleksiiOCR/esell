@@ -1,5 +1,7 @@
 package impls;
 
+
+
 import org.openqa.selenium.By;
 import pages.LoginPage;
 import utils.CucumberLogUtils;
@@ -31,7 +33,7 @@ public class LoginImpls {
     public void clickingCrmSignInButton() {
         MiscUtils.highlightElement(
                 getPage().headButtons.get(6)).click();
-        CucumberLogUtils.logPass("Successfully navigated to Sign in page", true);
+        CucumberLogUtils.logPass("Successfully navigated to Sign in page", false);
 
     }
 
@@ -52,7 +54,7 @@ public class LoginImpls {
     }
 
     public void clickingButton(String button) {
-        MiscUtils.sleep(3000);
+        MiscUtils.sleep(2000);
         MiscUtils.highlightElement(
                 WebdriverUtils.Driver().findElement(By.xpath
                         ("//div[@class='btn-blue']//span[contains(text() , '" + button + "')]"))).click();
@@ -60,22 +62,35 @@ public class LoginImpls {
     }
 
     public void verifyingUserNamePage(String username) {
-        username=username.toLowerCase(Locale.ROOT);
-        String userName = WebdriverUtils.Driver().findElement(By.xpath
-                ("//div[@class='nav-btn btn-standart']//span[contains(text(),'" + username + "')]")).getText().toLowerCase(Locale.ROOT);
-        if (username.contains(userName)) {
+        try {
+            username = username.toLowerCase(Locale.ROOT);
+            String userName = WebdriverUtils.Driver().findElement(By.xpath
+                    ("//div[@class='nav-btn btn-standart']//span[contains(text(),'" + username + "')]")).getText().toLowerCase(Locale.ROOT);
+            if (username.contains(userName)) {
 
 
-            CucumberLogUtils.logPass("Signed In with " + username + "login", true);
-        } else
+                CucumberLogUtils.logPass("Signed In with " + username + "login", false);
+
+            }
+        } catch
+        (Exception e) {
             CucumberLogUtils.logFail("Sign In hase failed", true);
+        }
     }
 
     public void signingOut() {
+        MiscUtils.sleep(1000);
         MiscUtils.highlightElement(
                 getPage().headButtons.get(7)).click();
-        CucumberLogUtils.logPass("Successfully Sign in page", true);
+        CucumberLogUtils.logPass("Successfully Sign in page", false);
 
 
     }
+
+    public void selectingRegisterOption(String option) {
+        WebdriverUtils.Driver().findElement(By.xpath
+                ("//div[@class='nav-btn passive']//span[contains(text(),'"+option+"')]")).click();
+    }
+
+
 }

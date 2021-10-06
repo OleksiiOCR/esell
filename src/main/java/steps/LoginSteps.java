@@ -14,9 +14,9 @@ public class LoginSteps {
 
 
     @Then("Passing {string} to  {string} field")
-    public void iAmLoginInWith(String value , String logParametr) {
+    public void iAmLoginInWith(String value, String logParametr) {
         LoginImpls login = new LoginImpls();
-        login.loginWithLogParametr(logParametr,value);
+        login.loginWithLogParametr(logParametr, value);
 
     }
 
@@ -28,13 +28,10 @@ public class LoginSteps {
 
 
 
-    public void passingToField(String arg0, String arg1) {
-    }
-
     @And("Passing  {string} to the {string} field")
-    public void passingToTheField( String password,String passwordField) {
+    public void passingToTheField(String password, String passwordField) {
         LoginImpls impls = new LoginImpls();
-        impls.passingPasswordTotheField(passwordField,password);
+        impls.passingPasswordTotheField(passwordField, password);
     }
 
     @Then("Clicking {string} button")
@@ -54,6 +51,23 @@ public class LoginSteps {
     public void signingOut() {
         LoginImpls impls = new LoginImpls();
         impls.signingOut();
+    }
+
+    @Then("Clicking {string} option")
+    public void clickingOption(String option) {
+
+        LoginImpls impls = new LoginImpls();
+        impls.selectingRegisterOption(option);
+    }
+
+    @Then("Passing {string} and {string} to Sign In window")
+    public void passingAndToSignInWindow(String  value, String password) {
+        LoginImpls impls = new LoginImpls();
+        String logParametr = "Email";
+        String passwordField = "Password";
+        impls.loginWithLogParametr(logParametr,value);
+        impls.passingPasswordTotheField(passwordField, password);
+
     }
 }
 

@@ -1,0 +1,10 @@
+steps\LoginSteps.class
+utils\CucumberLogUtils.class
+pages\LoginPage.class
+impls\LoginImpls.class
+utils\MiscUtils.class
+steps\Registrations.class
+utils\LocalConfigUtils.class
+impls\registrImpls.class
+utils\WebdriverUtils.class
+steps\Hooks.class
